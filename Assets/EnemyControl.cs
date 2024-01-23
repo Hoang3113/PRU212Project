@@ -7,6 +7,7 @@ public class EnemyControl : MonoBehaviour
     public GameObject pointA;
     public GameObject pointB;
     private Rigidbody2D rb;
+    private Animator animator;
     private Transform currentpoint;
     public float speed;
 
@@ -14,7 +15,9 @@ public class EnemyControl : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
         currentpoint = pointA.transform;
+        animator.SetBool("EnemyMove", true);
     }
 
     // Update is called once per frame
