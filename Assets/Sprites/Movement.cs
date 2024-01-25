@@ -51,6 +51,14 @@ public class Movement : MonoBehaviour
                 isJump = !isJump;
             }
         }
+        //anim.SetBool("attack", false);
+        if (Input.GetKey(KeyCode.Space)) {
+            anim.SetBool("attack", true);
+        }
+        else
+        {
+            anim.SetBool("attack", false);
+        }
 
         //flip
         flip();
@@ -72,5 +80,10 @@ public class Movement : MonoBehaviour
     private void Jump()
     {
         rb.velocity = new Vector2 (rb.velocity.x, jump);
+    }
+
+    private void Attack()
+    {
+        
     }
 }
