@@ -28,7 +28,7 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        jumpable = Physics2D.OverlapCircle(target.position, 0.1f, floor);
+        jumpable = Physics2D.OverlapCircle(target.position, 0.3f, floor);
         huong = Input.GetAxis("Horizontal");
         vertical = Input.GetAxis("Vertical");
 
@@ -52,14 +52,8 @@ public class Movement : MonoBehaviour
             }
         }
         //anim.SetBool("attack", false);
-        if (Input.GetKey(KeyCode.Space)) {
-            anim.SetBool("attack", true);
-        }
-        else
-        {
-            anim.SetBool("attack", false);
-        }
 
+        Attack();
         //flip
         flip();
         //anim
@@ -84,6 +78,13 @@ public class Movement : MonoBehaviour
 
     private void Attack()
     {
-        
+        if (Input.GetKey(KeyCode.Space))
+        {
+            anim.SetBool("attack", true);
+        }
+        else
+        {
+            anim.SetBool("attack", false);
+        }
     }
 }
