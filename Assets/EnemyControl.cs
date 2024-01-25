@@ -17,7 +17,6 @@ public class EnemyControl : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         currentpoint = pointA.transform;
-        animator.SetBool("EnemyMove", true);
     }
 
     // Update is called once per frame
