@@ -11,7 +11,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Floor
   - 
   - 
   - 
@@ -60,5 +60,5 @@ TagManager:
     uniqueID: 3669344117
     locked: 0
   - name: Coins
-    uniqueID: 3229790437
+    uniqueID: 3546396329
     locked: 0
