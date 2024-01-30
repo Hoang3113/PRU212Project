@@ -87,4 +87,15 @@ public class Movement : MonoBehaviour
             anim.SetBool("attack", false);
         }
     }
+
+    private int coins;
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Collectable"))
+        {
+            Destroy(collision.gameObject);
+            coins++;
+            Debug.Log("Coins: " + coins);
+        }
+    }
 }
