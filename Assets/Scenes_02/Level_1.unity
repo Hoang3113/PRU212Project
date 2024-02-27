@@ -8333,11 +8333,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4778472244744570186, guid: f7c7ef98ae4f03d4b815db3356dd39f5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -67.1
+      value: 17.4
       objectReference: {fileID: 0}
     - target: {fileID: 4778472244744570186, guid: f7c7ef98ae4f03d4b815db3356dd39f5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -27.9
+      value: 30.6
       objectReference: {fileID: 0}
     - target: {fileID: 4778472244744570186, guid: f7c7ef98ae4f03d4b815db3356dd39f5, type: 3}
       propertyPath: m_LocalPosition.z
@@ -16232,7 +16232,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   delaySecond: 2
-  nameScene: Level_2
+  nameScene: Level_22
   fadeOutPanel: {fileID: 1780689338}
 --- !u!1 &1817417705
 GameObject:
