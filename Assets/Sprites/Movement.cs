@@ -1,7 +1,8 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Movement : MonoBehaviour
 {
@@ -17,14 +18,49 @@ public class Movement : MonoBehaviour
     private Animator anim;
     private bool jumpable;
     private bool isJump;
-
+    public Sprite openChestSprite; // Hình ảnh đại diện cho hòm đã mở
+    [SerializeField] public Text keyText; // Text để hiển thị số lượng chìa khóa
+    private SpriteRenderer spriteRenderer; // Đối tượng SpriteRenderer của hòm
+    private int keysCount = 0; // Số lượng chìa khóa hiện có
+    private bool isOpen = false;
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();   
+        rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        UpdateKeyText();
+    }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Chest") && !isOpen)
+        {
+            OpenTheChest();
+        }
     }
 
+    private void OpenTheChest()
+    {
+        // Thay đổi hình ảnh của hòm thành "open chest"
+        spriteRenderer.sprite = openChestSprite;
+        isOpen = true;
+
+        // Cộng 1 vào số lượng chìa khóa
+        keysCount++;
+        UpdateKeyText();
+
+        // Thêm các hành động khác khi hòm được mở
+    }
+
+    private void UpdateKeyText()
+    {
+        // Cập nhật số lượng chìa khóa trên màn hình
+        if (keyText != null)
+        {
+            keyText.text = "Keys: " + keysCount;
+        }
+
+    }
     // Update is called once per frame
     void Update()
     {
@@ -32,7 +68,7 @@ public class Movement : MonoBehaviour
         huong = Input.GetAxis("Horizontal");
         vertical = Input.GetAxis("Vertical");
 
-        rb.velocity = new Vector2(huong*speed, rb.velocity.y);
+        rb.velocity = new Vector2(huong * speed, rb.velocity.y);
         //if (vertical >0.1 && jumpable)
         //{
         //    Jump();
@@ -62,7 +98,7 @@ public class Movement : MonoBehaviour
 
     private void flip()
     {
-        if (isFacingRight && huong<0 || !isFacingRight && huong > 0)
+        if (isFacingRight && huong < 0 || !isFacingRight && huong > 0)
         {
             isFacingRight = !isFacingRight;
             Vector3 scale = transform.localScale;
@@ -73,7 +109,7 @@ public class Movement : MonoBehaviour
 
     private void Jump()
     {
-        rb.velocity = new Vector2 (rb.velocity.x, jump);
+        rb.velocity = new Vector2(rb.velocity.x, jump);
     }
 
     private void Attack()
@@ -87,4 +123,5 @@ public class Movement : MonoBehaviour
             anim.SetBool("attack", false);
         }
     }
+    
 }
