@@ -7,10 +7,10 @@ public class SaveSystem : MonoBehaviour
 {
     public string sceneKey = "SceneIndex";
     public string savePresentKey = "SavePresent";
-    public LoadedData LoadedData {get; private set;}
+    public LoadedData LoadedData { get; private set; }
     public UnityEvent<bool> OnDataLoadedResult;
 
-    private void Awake() 
+    private void Awake()
     {
         DontDestroyOnLoad(gameObject);
     }
@@ -21,7 +21,7 @@ public class SaveSystem : MonoBehaviour
         OnDataLoadedResult?.Invoke(result);
     }
 
-    private void ResetData()
+    public void ResetData()
     {
         PlayerPrefs.DeleteKey(sceneKey);
         PlayerPrefs.DeleteKey(savePresentKey);
@@ -41,9 +41,10 @@ public class SaveSystem : MonoBehaviour
 
     public void SaveData(int sceneIndex)
     {
-        if(LoadedData == null)
+        if (LoadedData == null)
             LoadedData = new LoadedData();
         LoadedData.sceneIndex = sceneIndex;
+        Debug.Log(sceneIndex);
         PlayerPrefs.SetInt(sceneKey, sceneIndex);
         PlayerPrefs.SetInt(savePresentKey, 1);
     }

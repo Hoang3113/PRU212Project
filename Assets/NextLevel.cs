@@ -7,11 +7,13 @@ public class NextLevel : MonoBehaviour
     public float delaySecond = 1;
     public string nameScene = "Level_2";
     public GameObject fadeOutPanel;
+    public GameManager gameManager;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
+            gameManager.SaveData();
             StartCoroutine(LoadAfterDelay());
         }
     }
@@ -22,6 +24,6 @@ public class NextLevel : MonoBehaviour
         fadeOutPanel.SetActive(true); // hiển thị panel fade out
         yield return new WaitForSeconds(1); // thời gian fade out
 
-        SceneManager.LoadScene(nameScene);
+        gameManager.LoadNextLevel();
     }
 }
