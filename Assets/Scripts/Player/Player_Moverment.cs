@@ -25,17 +25,19 @@ public class Movement : MonoBehaviour
         if (Input.GetButtonDown("Jump"))
         {
             jump = true;
+            controller.Jump();
+
             animator.SetBool("IsJumping", true);
         }
 
-        if (Input.GetButtonDown("Crouch"))
-        {
-            crouch = true;
-        }
-        else if (Input.GetButtonUp("Crouch"))
-        {
-            crouch = false;
-        }
+        //if (Input.GetButtonDown("Crouch"))
+        //{
+        //    crouch = false;
+        //}
+        //else if (Input.GetButtonUp("Crouch"))
+        //{
+        //    crouch = false;
+        //}
     }
 
     public void OnLanding()
@@ -54,4 +56,6 @@ public class Movement : MonoBehaviour
         controller.Move(horizontalMove * Time.fixedDeltaTime, crouch, jump);
         jump = false;
     }
+
+
 }

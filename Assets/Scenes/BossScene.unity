@@ -494,7 +494,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdbd24856dca2984bb8948bd8ccd1af2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  followSpeed: 5
+  followSpeed: 20
   cam: {fileID: 288366977}
   leftdown: {fileID: 1248581597}
   rightup: {fileID: 1678311777}
@@ -774,11 +774,12 @@ Transform:
   m_GameObject: {fileID: 748448591}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -24.99, y: 4.79, z: 0.094035625}
+  m_LocalPosition: {x: -22.08, y: 4.79, z: 0.094035625}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 811428792}
+  - {fileID: 1524971185}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &753473189
@@ -4539,16 +4540,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61774d316ffe31548a91087ed18bf8b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_JumpForce: 400
-  m_CrouchSpeed: 0.36
-  m_MovementSmoothing: 0.05
+  m_JumpForce: 450
+  m_MovementSmoothing: 0.1
   m_AirControl: 1
   m_WhatIsGround:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 119
   m_GroundCheck: {fileID: 1469957608}
   m_CeilingCheck: {fileID: 475284621}
-  m_CrouchDisableCollider: {fileID: 811428796}
   OnLandEvent:
     m_PersistentCalls:
       m_Calls:
@@ -4774,13 +4773,13 @@ Transform:
   m_GameObject: {fileID: 1524971184}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -30.09, y: -3.44, z: 0.05611801}
+  m_LocalPosition: {x: -8.01, y: -8.23, z: -0.037917614}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1248581597}
   - {fileID: 1678311777}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 748448592}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1678311776
 GameObject:
@@ -4807,7 +4806,7 @@ Transform:
   m_GameObject: {fileID: 1678311776}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 43.12, y: 14.5, z: 0.0023181923}
+  m_LocalPosition: {x: 42.77, y: 13.18, z: 0.0023181923}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5156,4 +5155,3 @@ SceneRoots:
   - {fileID: 147065366}
   - {fileID: 748448592}
   - {fileID: 288366977}
-  - {fileID: 1524971185}

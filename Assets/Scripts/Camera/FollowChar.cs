@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.Profiling;
 using Unity.VisualScripting;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class FollowChar : MonoBehaviour
 {
@@ -19,58 +20,63 @@ public class FollowChar : MonoBehaviour
     private float r;
     private float u;
     private float d;
-    private float camL;
-    private float camR;
-    private float camU;
-    private float camD;
+
+    private float targetL;
+    private float targetR;
+    private float targetU;
+    private float targetD;
+
     private bool followX;
     private bool followY;
     private bool isTargetInFrame;
 
     void Start()
     {
-        l = leftdown.transform.position.x;
-        r = rightup.transform.position.x;
-        d = leftdown.transform.position.y;
-        u = rightup.transform.position.y;
+        l = leftdown.transform.position.x + 9f;
+        r = rightup.transform.position.x - 9f;
+        d = leftdown.transform.position.y + 5f;
+        u = rightup.transform.position.y - 5f;
     }
 
     // Update is called once per frame
     void Update()
     {
 
-        if (camL - l <=0)
+        float targetX = target.transform.position.x;
+        float targetY = target.transform.position.y;
+        if (targetX <= l)
         {
-            xOffset = +8.5f;
+            xOffset = l-targetX;
             followX = false;
         }
-        else if (camR - r >= 0)
+        else if (targetX >= r)
         {
-            xOffset = -8.5f;
+            xOffset = r-targetX;
             followX = false;
         }
         else
         {
-            xOffset = 0f;
-            followX = true;
+            xOffset = 0;
+            followX =true;
         }
 
-        if (camD - d <= 0)
+        if (targetY <= d)
         {
-            yOffset = +5f;
+            yOffset = d-targetY;
             followY = false;
         }
-        else if (camU - u >= 0)
+        else if (targetY >= u)
         {
-            yOffset = -5f;
+            yOffset = u-targetY;
             followY = false;
         }
         else
         {
-            yOffset = 0f;
+            yOffset = 0;
             followY = true;
         }
-        CheckTargetInFrame();
+
+        //CheckTargetInFrame();
 
         //if (followX || followY || !isTargetInFrame)
         //{
@@ -78,14 +84,29 @@ public class FollowChar : MonoBehaviour
         //    transform.position = Vector3.Slerp(transform.position, newPos, followSpeed * Time.deltaTime);
         //}
 
-        if (followX)
+        if (followX && followY)
         {
-            FollowX();
+            FollowXY();
         }
-        if (followY)
+        else
         {
-            FollowY();
+            if (followX)
+            {
+                FollowX();
+            }else {
+                yOffset = 0f;
+            }
+            
+            if (followY)
+            {
+                FollowY();
+            }
+            else
+            {
+                xOffset = 0f;
+            }
         }
+
         //if (followX && followY)
         //{
         //    Vector3 newPos = new Vector3(target.transform.position.x + xOffset, target.transform.position.y + yOffset, -10f);
@@ -93,37 +114,53 @@ public class FollowChar : MonoBehaviour
         //}
     }
 
-    private void FollowX()
-    {
-        Vector3 newPos = new Vector3(target.transform.position.x + xOffset, cam.transform.position.y, -10f);
-        transform.position = Vector3.Slerp(transform.position, newPos, followSpeed * Time.deltaTime);
-    }
-
     private void FollowY()
     {
-        Vector3 newPos = new Vector3(cam.transform.position.x, target.transform.position.y + yOffset, -10f);
+        Vector3 newPos = new Vector3(target.transform.position.x + xOffset, target.transform.position.y, -10f);
         transform.position = Vector3.Slerp(transform.position, newPos, followSpeed * Time.deltaTime);
     }
 
-    private void GetCamPosition()
+    private void FollowX()
     {
-        camL = cam.transform.position.x - 9f;
-        camR = cam.transform.position.x + 9f;
-        camU = cam.transform.position.y + 5f;
-        camD = cam.transform.position.y - 5f;
+        Vector3 newPos = new Vector3(target.transform.position.x, target.transform.position.y + yOffset, -10f);
+        transform.position = Vector3.Slerp(transform.position, newPos, followSpeed * Time.deltaTime);
+    }
+
+    private void FollowXY()
+    {
+        Vector3 newPos = new Vector3(target.transform.position.x, target.transform.position.y, -10f);
+        transform.position = Vector3.Slerp(transform.position, newPos, followSpeed * Time.deltaTime);
+    }
+
+    private void GetTargetPosition()
+    {
+        targetL = target.transform.position.x - 9f;
+        targetR = target.transform.position.x + 9f;
+        targetU = target.transform.position.y + 5f;
+        targetD = target.transform.position.y - 5f;
     }
 
     private void CheckTargetInFrame()
     {
         float targetX = target.transform.position.x;
         float targetY = target.transform.position.y;
-        if (targetX -9f > camL || targetX + 9f < camR || targetY -5f > camD || targetY + 5f < camU)
+        if (targetX -9f < l || targetX + 9f > r)
         {
-            isTargetInFrame = false;
+            followX = false;
         }
         else
         {
-            isTargetInFrame = true;
+            followX = true;
         }
+
+        if (targetY - 5f < d || targetY + 5f > u)
+        {
+            followY = false;
+        }
+        else
+        {
+            followX = true;
+        }
+
     }
 }
