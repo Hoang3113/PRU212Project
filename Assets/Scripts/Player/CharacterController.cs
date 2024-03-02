@@ -118,6 +118,11 @@ public class CharracterController : MonoBehaviour
         }
     }
 
+    public void Attack()
+    {
+
+    }
+
 
     private void Flip()
     {

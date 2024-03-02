@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
@@ -30,6 +31,22 @@ public class Movement : MonoBehaviour
             animator.SetBool("IsJumping", true);
         }
 
+        //if (Input.GetKey(KeyCode.Space))
+        //{
+        //    animator.SetBool("attack", true);
+        //}
+        //else
+        //{
+        //    animator.SetBool("attack", false);
+        //}
+
+        if (Input.GetButton("Attack"))
+        {
+            controller.Attack();
+            animator.SetTrigger("Attack");
+            animator.SetBool("isAttack", true);
+        }
+
         //if (Input.GetButtonDown("Crouch"))
         //{
         //    crouch = false;
@@ -55,7 +72,8 @@ public class Movement : MonoBehaviour
         // Move our character
         controller.Move(horizontalMove * Time.fixedDeltaTime, crouch, jump);
         jump = false;
+        animator.ResetTrigger("Attack");
+        animator.SetBool("isAttack", false);
     }
-
 
 }
