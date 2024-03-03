@@ -37,10 +37,10 @@ public class Movement : MonoBehaviour
         vertical = Input.GetAxis("Vertical");
 
         rb.velocity = new Vector2(huong * speed, rb.velocity.y);
-        //if (vertical >0.1 && jumpable)
-        //{
+        // if (vertical >0.1 && jumpable)
+        // {
         //    Jump();
-        //}
+        // }
 
         if (jumpable && !Input.GetKey(KeyCode.UpArrow))
         {
