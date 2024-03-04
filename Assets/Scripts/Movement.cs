@@ -118,14 +118,5 @@ public class Movement : MonoBehaviour
         }
     }
 
-    private int coins;
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Collectable"))
-        {
-            Destroy(collision.gameObject);
-            coins++;
-            Debug.Log("Coins: " + coins);
-        }
-    }
+    
 }

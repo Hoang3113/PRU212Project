@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -6,33 +6,49 @@ using UnityEngine.UI;
 public class CollectCoins : MonoBehaviour
 {
 
-     
-    public int coins;
-
     public Text coinsText;
-    // Start is called before the first frame update
-    void Start()
+    public  int coins = 0;
+
+    private void Start()
     {
-        
+        if (PlayerPrefs.HasKey("Coins"))
+        {
+            coins = PlayerPrefs.GetInt("Coins");
+        }
+        UpdateCoins();
+        //giu khi chuyen scense
+        DontDestroyOnLoad(gameObject); 
     }
 
-    // Update is called once per frame
-    void Update()
+    private void UpdateCoins()
     {
-        
+        coinsText.text = coins.ToString();
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+
+    public void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Collectable"))
+        if (collision.gameObject.CompareTag("Coins"))
         {
             Destroy(collision.gameObject);
-            coins += 100;
-            coinsText.text = "Coins: " + coins;
+            coins++;
+            UpdateCoins();
         }
     }
-    public void CoinsUpdate(int amount)
+
+    private void OnDestroy()
+    {
+        PlayerPrefs.SetInt("Coins", coins);
+        PlayerPrefs.Save();
+    }
+    public void CoinsUpdate(int amount = 0)
     {
         coins = amount;
-        coinsText.text = "Coins: " + coins;
+
+    }
+    // Lấy số coins để sử dụng khi game tắt
+    public int GetCoins()
+    {
+        return coins;
     }
 }
+
