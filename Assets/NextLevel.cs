@@ -6,7 +6,7 @@ public class NextLevel : MonoBehaviour
 {
     public float delaySecond = 1;
     public string nameScene = "Level_2";
-    public GameObject fadeOutPanel;
+    [SerializeField] Animator trasitionAnim;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -18,10 +18,9 @@ public class NextLevel : MonoBehaviour
 
     IEnumerator LoadAfterDelay()
     {
-        yield return new WaitForSeconds(delaySecond);
-        fadeOutPanel.SetActive(true); // hiển thị panel fade out
-        yield return new WaitForSeconds(1); // thời gian fade out
-
+        trasitionAnim.SetTrigger("End");
+        yield return new WaitForSeconds(1);
         SceneManager.LoadScene(nameScene);
+        trasitionAnim.SetTrigger("Start");
     }
 }
