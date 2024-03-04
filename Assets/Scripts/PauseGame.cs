@@ -42,7 +42,7 @@ public class PauseGame : MonoBehaviour
                 Successful.text = null;
                 Fail.text = null;
             }
-            CollectCoins collectCoinsScript = FindObjectOfType<CollectCoins>();
+            CoinsCollector collectCoinsScript = FindObjectOfType<CoinsCollector>();
 
             if (collectCoinsScript != null)
             {
@@ -85,7 +85,7 @@ public class PauseGame : MonoBehaviour
 
     public void IncreaseHealth(int amount)
     {
-        CollectCoins collectCoinsScript = FindObjectOfType<CollectCoins>();
+        CoinsCollector collectCoinsScript = FindObjectOfType<CoinsCollector>();
         if (coins >= PriceHeath)
         {
             Health += 100;
@@ -105,7 +105,7 @@ public class PauseGame : MonoBehaviour
 
     public void IncreaseAttack(int amount)
     {
-        CollectCoins collectCoinsScript = FindObjectOfType<CollectCoins>();
+        CoinsCollector collectCoinsScript = FindObjectOfType<CoinsCollector>();
         if (coins >= PriceAttack)
         {
             Attack += 100;
@@ -124,7 +124,7 @@ public class PauseGame : MonoBehaviour
 
     public void IncreaseDefense()
     {
-        CollectCoins collectCoinsScript = FindObjectOfType<CollectCoins>();
+        CoinsCollector collectCoinsScript = FindObjectOfType<CoinsCollector>();
         if (coins >= PriceDefense)
         {
             Defense += 100;
@@ -143,7 +143,7 @@ public class PauseGame : MonoBehaviour
 
     public void IncreaseSpeed()
     {
-        CollectCoins collectCoinsScript = FindObjectOfType<CollectCoins>();
+        CoinsCollector collectCoinsScript = FindObjectOfType<CoinsCollector>();
         if (coins >= PriceSpeed)
         {
             Speed += 100;
@@ -162,7 +162,7 @@ public class PauseGame : MonoBehaviour
 
     public void IncreaseJump()
     {
-        CollectCoins collectCoinsScript = FindObjectOfType<CollectCoins>();
+        CoinsCollector collectCoinsScript = FindObjectOfType<CoinsCollector>();
         if (coins >= PriceJump)
         {
             Jump += 0.1f;
