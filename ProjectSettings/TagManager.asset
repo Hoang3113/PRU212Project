@@ -9,6 +9,7 @@ TagManager:
   - Coins
   - Interactable
   - Chest
+  - Ladder
   layers:
   - Default
   - TransparentFX
