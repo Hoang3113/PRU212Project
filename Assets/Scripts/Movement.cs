@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
@@ -18,11 +18,14 @@ public class Movement : MonoBehaviour
     private Animator anim;
     private bool jumpable;
     private bool isJump;
+    private bool isJumping = false;
+    private bool isDelayingJump = false;
+    private bool hasPressedJump = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();   
+        rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
     }
 
@@ -33,25 +36,27 @@ public class Movement : MonoBehaviour
         huong = Input.GetAxis("Horizontal");
         vertical = Input.GetAxis("Vertical");
 
-        rb.velocity = new Vector2(huong*speed, rb.velocity.y);
-        //if (vertical >0.1 && jumpable)
-        //{
+        rb.velocity = new Vector2(huong * speed, rb.velocity.y);
+        // if (vertical >0.1 && jumpable)
+        // {
         //    Jump();
-        //}
+        // }
 
-        if (jumpable && !Input.GetKey(KeyCode.W))
+        if (jumpable && !Input.GetKey(KeyCode.UpArrow))
         {
-            isJump = false;
+            isJump = true;
         }
 
-        if (Input.GetKeyDown(KeyCode.W))
+        if (Input.GetKeyDown(KeyCode.UpArrow))
         {
             if (isJump || jumpable)
             {
                 Jump();
-                isJump = !isJump;
+                isJumping = false;
             }
         }
+
+
         //anim.SetBool("attack", false);
 
         Attack();
@@ -63,7 +68,7 @@ public class Movement : MonoBehaviour
 
     private void flip()
     {
-        if (isFacingRight && huong<0 || !isFacingRight && huong > 0)
+        if (isFacingRight && huong < 0 || !isFacingRight && huong > 0)
         {
             isFacingRight = !isFacingRight;
             Vector3 scale = transform.localScale;
@@ -74,7 +79,31 @@ public class Movement : MonoBehaviour
 
     private void Jump()
     {
-        rb.velocity = new Vector2 (rb.velocity.x, jump);
+        if (!isJumping && !isDelayingJump) // Chỉ cho phép nhảy nếu nhân vật không đang trong quá trình nhảy và coroutine không chạy
+        {
+            rb.velocity = new Vector2(rb.velocity.x, jump);
+            isJumping = true; // Đặt cờ là nhân vật đã nhảy
+            hasPressedJump = false;
+
+            StartCoroutine(DelayJump()); // Bắt đầu coroutine để đợi 1 giây trước khi cho phép nhảy tiếp
+        }
+    }
+
+    private IEnumerator DelayJump()
+    {
+        isDelayingJump = true; // Đặt cờ là coroutine đang chạy
+
+        yield return new WaitForSeconds(0.3f); // Đợi 1 giây
+
+        while (!Input.GetKey(KeyCode.UpArrow) && !hasPressedJump) // Đợi cho đến khi người chơi nhấn nút nhảy tiếp hoặc đã nhấn nút nhảy trong lần nhảy trước
+        {
+            yield return null;
+        }
+
+        isJumping = false; // Đặt lại cờ là nhân vật không còn trong quá trình nhảy
+        isDelayingJump = false; // Đặt lại cờ là coroutine không còn chạy
+
+        hasPressedJump = true; // Đặt cờ là người chơi đã nhấn nút nhảy trong lần nhảy hiện tại
     }
 
     private void Attack()
@@ -91,4 +120,3 @@ public class Movement : MonoBehaviour
 
     
 }
- 
