@@ -29,7 +29,7 @@ public class Key_Collect : MonoBehaviour
             string chestKey = chestName + "isOpen";
             if (!PlayerPrefs.HasKey(chestKey))
             {
-                key++;
+                key=1;
                 UpdateKeyText();
             }
         }

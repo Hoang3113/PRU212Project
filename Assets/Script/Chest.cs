@@ -25,9 +25,7 @@ public class ChestOpener : MonoBehaviour {
 
     private void OpenTheChest()
     {
-      
-       
-
+        
         spriteRenderer.sprite = openChestSprite;
         isOpen = true;
     }

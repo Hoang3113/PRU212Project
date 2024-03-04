@@ -74448,6 +74448,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2754094168701415201, guid: e4524528d17fe8a4e9bb106feaf8a0e7, type: 3}
+      propertyPath: m_Size.x
+      value: 0.6962662
+      objectReference: {fileID: 0}
+    - target: {fileID: 2754094168701415201, guid: e4524528d17fe8a4e9bb106feaf8a0e7, type: 3}
+      propertyPath: m_Size.y
+      value: 0.99578714
+      objectReference: {fileID: 0}
+    - target: {fileID: 2754094168701415201, guid: e4524528d17fe8a4e9bb106feaf8a0e7, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.10728836
+      objectReference: {fileID: 0}
+    - target: {fileID: 2754094168701415201, guid: e4524528d17fe8a4e9bb106feaf8a0e7, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.01279664
+      objectReference: {fileID: 0}
     - target: {fileID: 5267788509400035842, guid: e4524528d17fe8a4e9bb106feaf8a0e7, type: 3}
       propertyPath: coinsText
       value: 
