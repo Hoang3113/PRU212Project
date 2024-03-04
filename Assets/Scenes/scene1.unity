@@ -1974,11 +1974,11 @@ MonoBehaviour:
   Jump: 0
   Successful: {fileID: 75770074}
   Fail: {fileID: 1160006037}
-  PriceHeath: 302
+  PriceHeath: 100
   PriceAttack: 100
-  PriceDefense: 100
-  PriceSpeed: 100
-  PriceJump: 100
+  PriceDefense: 300
+  PriceSpeed: 500
+  PriceJump: 500
 --- !u!1 &393259184
 GameObject:
   m_ObjectHideFlags: 0
@@ -3222,11 +3222,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4778472244744570186, guid: f7c7ef98ae4f03d4b815db3356dd39f5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -16
+      value: -17.05
       objectReference: {fileID: 0}
     - target: {fileID: 4778472244744570186, guid: f7c7ef98ae4f03d4b815db3356dd39f5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.12
+      value: -5.2
       objectReference: {fileID: 0}
     - target: {fileID: 4778472244744570186, guid: f7c7ef98ae4f03d4b815db3356dd39f5, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3264,6 +3264,14 @@ PrefabInstance:
       propertyPath: coinsText
       value: 
       objectReference: {fileID: 31077573}
+    - target: {fileID: 5520928052962095132, guid: f7c7ef98ae4f03d4b815db3356dd39f5, type: 3}
+      propertyPath: m_Size.x
+      value: 0.6889787
+      objectReference: {fileID: 0}
+    - target: {fileID: 5520928052962095132, guid: f7c7ef98ae4f03d4b815db3356dd39f5, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.12401557
+      objectReference: {fileID: 0}
     - target: {fileID: 8820846385375338412, guid: f7c7ef98ae4f03d4b815db3356dd39f5, type: 3}
       propertyPath: m_GravityScale
       value: 5

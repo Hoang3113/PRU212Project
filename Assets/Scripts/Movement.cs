@@ -87,21 +87,8 @@ public class Movement : MonoBehaviour
         {
             anim.SetBool("attack", false);
         }
-<<<<<<< Updated upstream:Assets/Sprites/Movement.cs
     }
 
-    private int coins;
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Collectable"))
-        {
-            Destroy(collision.gameObject);
-            coins++;
-            Debug.Log("Coins: " + coins);
-        }
-    }
-=======
-    } 
->>>>>>> Stashed changes:Assets/Scripts/Movement.cs
+    
 }
  
