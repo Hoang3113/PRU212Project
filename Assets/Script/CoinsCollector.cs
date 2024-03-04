@@ -47,8 +47,9 @@ public class CoinsCollector : MonoBehaviour
     }
     public void CoinsUpdate(int amount = 0)
     {
+        coinsText.text = coins.ToString();
         coins = amount;
-         coinsText.text = coins.ToString();
+
 
     }
 }
