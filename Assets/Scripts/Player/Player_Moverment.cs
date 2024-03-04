@@ -75,5 +75,4 @@ public class PlayerMovement: MonoBehaviour
         animator.ResetTrigger("Attack");
         animator.SetBool("isAttack", false);
     }
-
 }
