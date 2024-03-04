@@ -388,7 +388,7 @@ MonoBehaviour:
       - m_Target: {fileID: 295721778}
         m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
         m_MethodName: set_interactable
-        m_Mode: 6
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -964,7 +964,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  saveSystem: {fileID: 0}
+  saveSystem: {fileID: 313817189}
 --- !u!1 &1615978280
 GameObject:
   m_ObjectHideFlags: 0
