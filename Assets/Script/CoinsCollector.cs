@@ -16,7 +16,7 @@ public class CoinsCollector : MonoBehaviour
            
         }
         UpdateCoinsText();
-        DontDestroyOnLoad(gameObject); // Giữ đối tượng này khi chuyển scene
+         
     }
 
     private void UpdateCoinsText()
