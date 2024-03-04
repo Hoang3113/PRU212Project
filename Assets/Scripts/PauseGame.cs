@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -27,7 +27,8 @@ public class PauseGame : MonoBehaviour
     public int PriceDefense = 30;
     public int PriceSpeed = 50;
     public int PriceJump = 50;
-    
+
+   
     void Update() 
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -178,4 +179,5 @@ public class PauseGame : MonoBehaviour
             Successful.text = null;
         }
     }
+   
 }
