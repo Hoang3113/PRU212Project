@@ -3,51 +3,25 @@ using UnityEngine.UI;
 
 public class CoinsCollector : MonoBehaviour
 {
+    public static CoinsCollector intance;
     public Text coinsText;
     public int coins = 0;
-    
 
- 
+    private void Awake()
+    {
+        intance = this;
+    }
     private void Start()
     {
-        if (PlayerPrefs.HasKey("Coins"))
-        {
-            coins = PlayerPrefs.GetInt("Coins");
-           
-        }
-        UpdateCoinsText();
-        DontDestroyOnLoad(gameObject); // Giữ đối tượng này khi chuyển scene
+        coinsText.text= coins.ToString();
     }
-
-    private void UpdateCoinsText()
+    public void UpdateCoints(int v)
     {
+        coins += v;
         coinsText.text = coins.ToString();
-    }
-
-    public void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Coins"))
-        {
-            Destroy(collision.gameObject);
-            coins++;
-            UpdateCoinsText();
-        }
-    }
-
-    private void OnDestroy()
-    {
-        PlayerPrefs.SetInt("Coins", coins);
-        PlayerPrefs.Save();
-    }
-
-    // Lấy số coins để sử dụng khi game tắt
-    public  int GetCoins()
-    {
-        return coins=0;
     }
     public void CoinsUpdate(int amount = 0)
     {
         coins = amount;
-
     }
 }
