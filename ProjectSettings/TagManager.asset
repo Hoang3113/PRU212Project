@@ -4,19 +4,17 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Coins
-  - Chest
-  - Interactable
-  - Door
+  - Collectable
+  - Checkpoint
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
   - Floor
-  - 
+  - Enemy
   - 
   - 
   - 
