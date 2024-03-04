@@ -40,7 +40,7 @@ public class CoinsCollector : MonoBehaviour
         PlayerPrefs.Save();
     }
 
-    // Lấy số coins để sử dụng khi game tắt
+   
     public  int GetCoins()
     {
         return coins=0;
@@ -48,6 +48,7 @@ public class CoinsCollector : MonoBehaviour
     public void CoinsUpdate(int amount = 0)
     {
         coins = amount;
+         coinsText.text = coins.ToString();
 
     }
 }

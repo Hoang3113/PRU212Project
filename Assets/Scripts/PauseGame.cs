@@ -22,11 +22,11 @@ public class PauseGame : MonoBehaviour
     public Text Successful;
     public Text Fail;
 
-    public int PriceHeath = 100;
-    public int PriceAttack = 100;
-    public int PriceDefense = 300;
-    public int PriceSpeed = 500;
-    public int PriceJump = 500;
+    public int PriceHeath = 10;
+    public int PriceAttack = 10;
+    public int PriceDefense = 30;
+    public int PriceSpeed = 50;
+    public int PriceJump = 50;
     
     void Update() 
     {
@@ -56,11 +56,11 @@ public class PauseGame : MonoBehaviour
             SpeedText.text = "Speed : " + Speed;
             JumpText.text = "Jump : " + Jump;
 
-            PriceHeath = 100;
-            PriceAttack = 100;
-            PriceDefense = 300;
-            PriceSpeed = 500;
-            PriceJump = 500;
+            PriceHeath = 10;
+            PriceAttack = 10;
+            PriceDefense = 30;
+            PriceSpeed = 50;
+            PriceJump = 50;
 }  
     }
     public void Resume()

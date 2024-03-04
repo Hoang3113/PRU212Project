@@ -6,14 +6,18 @@ public class NextLevel : MonoBehaviour
 {
     public float delaySecond = 1;
     public string nameScene = "Level_2";
-
+    public Key_Collect keyCollector;
+    private void Start()
+    {
+        keyCollector = GameObject.FindObjectOfType<Key_Collect>(); // Tìm đối tượng Key_Collect trong scene
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            int collectedKeys = PlayerPrefs.GetInt("SavedKey", 0); 
-            if (collectedKeys >= 1) 
+           
+            if (keyCollector.key >= 1) 
             {
                 
                 StartCoroutine(LoadAfterDelay());
