@@ -8,13 +8,13 @@ public class HealthBarLine : MonoBehaviour
 {
     public Slider slider;
 
-    public void SetMathHealth(int health)
+    public void SetMathHealth(float health)
     {
         slider.maxValue = health;
         slider.value = health;
     }
 
-    public void SetHealth(int health)
+    public void SetHealth(float health)
     {
         slider.value = health;
     }

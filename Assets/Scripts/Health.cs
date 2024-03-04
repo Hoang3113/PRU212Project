@@ -3,24 +3,26 @@ using System.Collections;
 
 public class Health : MonoBehaviour
 {
-    [SerializeField] private float startingHealth;
+    [SerializeField] private float startingHealth = 100;
 
     public float currentHealth { get; private set; }
     private Animator anim;
     private bool dead;
 
-
+    public HealthBarLine healthBarLine;
 
     private void Awake()
     {
         currentHealth = startingHealth;
         anim = GetComponent<Animator>();
+        healthBarLine.SetMathHealth(startingHealth);
     }
 
     public void TakeDamage(float _damage)
     {
         currentHealth = Mathf.Clamp(currentHealth - _damage, 0, startingHealth);
 
+        healthBarLine.SetHealth(currentHealth);
         if (currentHealth > 0)
         {
             anim.SetTrigger("hurt");
@@ -30,8 +32,8 @@ public class Health : MonoBehaviour
             if (!dead)
             {
                 anim.SetTrigger("die");
-                GetComponent<Movement>().enabled = false;
-                dead = true;    
+                GetComponent<PlayerMovement>().enabled = false;
+                dead = true;
             }
         }
     }
@@ -39,6 +41,7 @@ public class Health : MonoBehaviour
     public void AddHealth(float _value)
     {
         currentHealth = Mathf.Clamp(currentHealth + _value, 0, startingHealth);
+        healthBarLine.SetMathHealth(startingHealth);
     }
 
     public void Respawn()
@@ -46,7 +49,8 @@ public class Health : MonoBehaviour
         AddHealth(startingHealth);
         anim.ResetTrigger("die");
         dead = false;
-        GetComponent<Movement>().enabled = true;
+        GetComponent<PlayerMovement>().enabled = true;
         anim.Play("None");
     }
+
 }
