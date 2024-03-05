@@ -42,7 +42,6 @@ public class PlayerMovement: MonoBehaviour
 
         if (Input.GetButton("Attack"))
         {
-            controller.Attack();
             animator.SetTrigger("Attack");
             animator.SetBool("isAttack", true);
         }
