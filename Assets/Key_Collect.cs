@@ -23,16 +23,16 @@ public class Key_Collect : MonoBehaviour
     public void OnTriggerEnter2D(Collider2D collision)
     {
        
-        if (collision.gameObject.CompareTag("Chest"))
-        {
-            string chestName = collision.gameObject.name; // Lấy tên của chest
-            string chestKey = chestName + "isOpen";
-            if (!PlayerPrefs.HasKey(chestKey))
-            {
-                key=1;
-                UpdateKeyText();
-            }
-        }
+        //if (collision.gameObject.CompareTag("Chest"))
+        //{
+        //    string chestName = collision.gameObject.name; // Lấy tên của chest
+        //    string chestKey = chestName + "isOpen";
+        //    if (!PlayerPrefs.HasKey(chestKey))
+        //    {
+        //        key=1;
+        //        UpdateKeyText();
+        //    }
+        //}
     }
 
    

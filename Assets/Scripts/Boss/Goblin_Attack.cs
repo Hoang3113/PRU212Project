@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.TextCore.Text;
 
 public class Goblin_Attack : MonoBehaviour
 {
@@ -20,7 +21,7 @@ public class Goblin_Attack : MonoBehaviour
         Collider2D colInfo = Physics2D.OverlapCircle(pos, attackRange, attackMask);
         if (colInfo != null)
         {
-            //colInfo.GetComponent<PlayerHealth>().TakeDamage(attackDamage);
+            colInfo.GetComponent<Player_Heath>().TakeDamage(attackDamage);
         }
     }
     void OnDrawGizmosSelected()
