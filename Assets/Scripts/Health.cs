@@ -8,19 +8,20 @@ public class Health : MonoBehaviour
     public float currentHealth { get; private set; }
     private Animator anim;
     private bool dead;
-
+    public HealthBarLine healthBarLine;
 
 
     private void Awake()
     {
         currentHealth = startingHealth;
         anim = GetComponent<Animator>();
+        healthBarLine.SetMathHealth(startingHealth); 
     }
 
     public void TakeDamage(float _damage)
     {
         currentHealth = Mathf.Clamp(currentHealth - _damage, 0, startingHealth);
-
+        healthBarLine.SetHealth(currentHealth);
         if (currentHealth > 0)
         {
             anim.SetTrigger("hurt");
