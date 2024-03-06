@@ -30,7 +30,7 @@ public class Health : MonoBehaviour
             if (!dead)
             {
                 anim.SetTrigger("die");
-                GetComponent<Movement>().enabled = false;
+                GetComponent<PlayerMovement>().enabled = false;
                 dead = true;    
             }
         }
@@ -46,7 +46,7 @@ public class Health : MonoBehaviour
         AddHealth(startingHealth);
         anim.ResetTrigger("die");
         dead = false;
-        GetComponent<Movement>().enabled = true;
+        GetComponent<PlayerMovement>().enabled = true;
         anim.Play("None");
     }
 }

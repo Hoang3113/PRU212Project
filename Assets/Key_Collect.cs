@@ -5,27 +5,38 @@ using static UnityEditor.Timeline.TimelinePlaybackControls;
 public class Key_Collect : MonoBehaviour
 {
     public Text KeyText;
-    private int key;
+    public int key = 0;
 
-    private bool chestCollected = false;
-
-    private void OnTriggerEnter2D(Collider2D other)
+    private void Start()
     {
-        if (other.CompareTag("Chest") && !chestCollected)
-        {
-            key++;
-            chestCollected = true;
-            UpdateKeyText();
-          
-          
-        }
+        key = 0; 
+
+        UpdateKeyText();
+
     }
 
     private void UpdateKeyText()
     {
-        if (KeyText != null)
-        {
-            KeyText.text = key.ToString();
-        }
+        KeyText.text = key.ToString();
     }
+
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+       
+        //if (collision.gameObject.CompareTag("Chest"))
+        //{
+        //    string chestName = collision.gameObject.name; // Lấy tên của chest
+        //    string chestKey = chestName + "isOpen";
+        //    if (!PlayerPrefs.HasKey(chestKey))
+        //    {
+        //        key=1;
+        //        UpdateKeyText();
+        //    }
+        //}
+    }
+
+   
+
+  
+ 
 }

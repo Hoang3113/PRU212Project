@@ -160,3 +160,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   delaySecond: 1
   nameScene: Level2
+  keyCollector: {fileID: 0}

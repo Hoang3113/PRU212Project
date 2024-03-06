@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -16,17 +16,17 @@ public class PauseGame : MonoBehaviour
     public Text JumpText;
     public int Health;
     public int Attack;
-    public int Defense;
+    /*public int Defense;
     public float Speed;
-    public float Jump;
+    public float Jump;*/
     public Text Successful;
     public Text Fail;
 
-    public int PriceHeath = 100;
-    public int PriceAttack = 100;
-    public int PriceDefense = 300;
-    public int PriceSpeed = 500;
-    public int PriceJump = 500;
+    public int PriceHeath = 10;
+    public int PriceAttack = 10;
+    /*public int PriceDefense = 30;
+    public int PriceSpeed = 50;
+    public int PriceJump = 50;*/
     
     void Update() 
     {
@@ -43,7 +43,11 @@ public class PauseGame : MonoBehaviour
                 Fail.text = null;
             }
             CoinsCollector collectCoinsScript = FindObjectOfType<CoinsCollector>();
-
+            Player_Heath player_Heath = FindObjectOfType<Player_Heath>();
+            if (player_Heath != null) 
+            {
+                Health = player_Heath.health;
+            }
             if (collectCoinsScript != null)
             {
                 coins = collectCoinsScript.coins;
@@ -52,15 +56,15 @@ public class PauseGame : MonoBehaviour
 
             HealthText.text = "Health : " + Health;
             AttackText.text = "Attack : " + Attack;
-            DefenseText.text = "Defense : " + Defense;
+            /*DefenseText.text = "Defense : " + Defense;
             SpeedText.text = "Speed : " + Speed;
-            JumpText.text = "Jump : " + Jump;
+            JumpText.text = "Jump : " + Jump;*/
 
-            PriceHeath = 100;
-            PriceAttack = 100;
-            PriceDefense = 300;
-            PriceSpeed = 500;
-            PriceJump = 500;
+            PriceHeath = 10;
+            PriceAttack = 10;
+            /*PriceDefense = 30;
+            PriceSpeed = 50;
+            PriceJump = 50;*/
 }  
     }
     public void Resume()
@@ -122,7 +126,7 @@ public class PauseGame : MonoBehaviour
         }
     }
 
-    public void IncreaseDefense()
+    /*public void IncreaseDefense()
     {
         CoinsCollector collectCoinsScript = FindObjectOfType<CoinsCollector>();
         if (coins >= PriceDefense)
@@ -177,5 +181,7 @@ public class PauseGame : MonoBehaviour
             Fail.text = "Not enough coins!";
             Successful.text = null;
         }
-    }
+    }*/
+
+   
 }
