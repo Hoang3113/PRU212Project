@@ -20,7 +20,7 @@ public class Coint : MonoBehaviour
         if (collision.gameObject.CompareTag("Player" ))
         {
             Destroy(gameObject);
-            CoinsCollector.intance.UpdateCoints(value);
+           // CoinsCollector.intance.UpdateCoints(value);
         }
         
     }
