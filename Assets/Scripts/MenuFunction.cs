@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class MenuFunction : MonoBehaviour
 {
+    public string nameScene = "Level1";
     // Start is called before the first frame update
     void Start()
     {
@@ -19,7 +20,7 @@ public class MenuFunction : MonoBehaviour
 
     public void NewGame()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(nameScene);
     }
     
     public void Continue()

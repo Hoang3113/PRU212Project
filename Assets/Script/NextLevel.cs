@@ -1,15 +1,19 @@
 ﻿using System.Collections;
+using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class NextLevel : MonoBehaviour
 {
-    public float delaySecond = 1;
+    public SpriteRenderer spriteRenderer;
+    public Sprite openDoorSprite;
+    public float delaySecond = 0.5f;
     public string nameScene = "Level_2";
     public Key_Collect keyCollector;
-    public GameManager gameManager;
+    public GameManager gameManager; private bool isOpen = false;
     private void Start()
     {
+        spriteRenderer = GetComponent<SpriteRenderer>();
         keyCollector = GameObject.FindObjectOfType<Key_Collect>(); // Tìm đối tượng Key_Collect trong scene
     }
 
@@ -20,7 +24,10 @@ public class NextLevel : MonoBehaviour
 
             if (keyCollector.key >= 1)
             {
+
+                OpenTheDoor();
                 gameManager.SaveData();
+                
                 StartCoroutine(LoadAfterDelay());
             }
             else
@@ -29,7 +36,12 @@ public class NextLevel : MonoBehaviour
             }
         }
     }
+    public void OpenTheDoor()
+    {
 
+        spriteRenderer.sprite = openDoorSprite;
+        isOpen = true;
+    }
     IEnumerator LoadAfterDelay()
     {
         yield return new WaitForSeconds(delaySecond);
