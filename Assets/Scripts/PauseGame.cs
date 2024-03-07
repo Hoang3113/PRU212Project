@@ -15,20 +15,20 @@ public class PauseGame : MonoBehaviour
     public Text DefenseText;
     public Text SpeedText;
     public Text JumpText;
-    public int Health;
+    public float Health;
     public int Attack;
-    /*public int Defense;
-    public float Speed;
+    public float Defense;
+ /*   public float Speed;
     public float Jump;*/
     public Text Successful;
     public Text Fail;
 
-    public int PriceHeath = 10;
-    public int PriceAttack = 10;
-    /*public int PriceDefense = 30;
-    public int PriceSpeed = 50;
-    public int PriceJump = 50;*/
-    
+    public int PriceHeath = 5;
+    public int PriceAttack = 5;
+    public int PriceDefense = 10;
+   /* public int PriceSpeed = 20;
+    public int PriceJump = 20;*/
+
     void Update() 
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -44,10 +44,16 @@ public class PauseGame : MonoBehaviour
                 Fail.text = null;
             }
             GameManager collectCoinsScript = FindObjectOfType<GameManager>();
-            Player_Heath player_Heath = FindObjectOfType<Player_Heath>();
+            Health player_Heath = FindObjectOfType<Health>();
+            PlayerAttack playerAttack = FindObjectOfType<PlayerAttack>();   
             if (player_Heath != null) 
             {
-                Health = player_Heath.health;
+                Health = player_Heath.startingHealth;
+                Defense = player_Heath.defense;
+            }
+            if (playerAttack != null)
+            {
+                Attack = playerAttack.damage;
             }
             if (collectCoinsScript != null)
             {
@@ -57,16 +63,16 @@ public class PauseGame : MonoBehaviour
 
             HealthText.text = "Health : " + Health;
             AttackText.text = "Attack : " + Attack;
-            /*DefenseText.text = "Defense : " + Defense;
-            SpeedText.text = "Speed : " + Speed;
+            DefenseText.text = "Defense : " + Defense;
+            /*SpeedText.text = "Speed : " + Speed;
             JumpText.text = "Jump : " + Jump;*/
 
-            PriceHeath = 10;
-            PriceAttack = 10;
-            /*PriceDefense = 30;
-            PriceSpeed = 50;
-            PriceJump = 50;*/
-}  
+            PriceHeath = 5;
+            PriceAttack = 5;
+            PriceDefense = 1;
+           /* PriceSpeed = 20;
+            PriceJump = 20;*/
+        }  
     }
     public void Resume()
     {
@@ -91,11 +97,13 @@ public class PauseGame : MonoBehaviour
     public void IncreaseHealth(int amount)
     {
         GameManager collectCoinsScript = FindObjectOfType<GameManager>();
+        Health player_Heath = FindObjectOfType<Health>();
         if (coins >= PriceHeath)
         {
-            Health += 100;
+            Health += 20;
             HealthText.text = "Health : " + Health;
-            coins = coins - PriceHeath; 
+            coins = coins - PriceHeath;
+            player_Heath.UpdateHealth(20);
             collectCoinsScript.CoinsUpdate(coins);
             Successful.text = "Increasing Successful!";
             Fail.text = null;
@@ -111,11 +119,14 @@ public class PauseGame : MonoBehaviour
     public void IncreaseAttack(int amount)
     {
         GameManager collectCoinsScript = FindObjectOfType<GameManager>();
+        PlayerAttack playerAttack = FindObjectOfType<PlayerAttack>();
+
         if (coins >= PriceAttack)
         {
-            Attack += 100;
+            Attack += 5;
             AttackText.text = "Attack : " + Attack;
             coins = coins - PriceAttack;
+            playerAttack.UpdateDamage(5);
             collectCoinsScript.CoinsUpdate(coins);
             Successful.text = "Increasing Successful!";
             Fail.text = null;
@@ -129,17 +140,27 @@ public class PauseGame : MonoBehaviour
     public void BackToMenu(){
         SceneManager.LoadScene(0); 
     }
-    /*public void IncreaseDefense()
+    public void IncreaseDefense()
     {
         CoinsCollector collectCoinsScript = FindObjectOfType<CoinsCollector>();
+        Health player_Heath = FindObjectOfType<Health>();
         if (coins >= PriceDefense)
         {
-            Defense += 100;
-            DefenseText.text = "Defense : " + Defense;
-            coins = coins - PriceDefense;
-            collectCoinsScript.CoinsUpdate(coins);
-            Successful.text = "Increasing Successful!";
-            Fail.text = null;
+            Defense += 0.05f;
+            if (Defense >= 0.95f) 
+            {
+                Fail.text = "Maximum!";
+                Successful.text = null;
+            }
+            else 
+            { 
+                DefenseText.text = "Defense : " + Defense;
+                coins = coins - PriceDefense;
+                collectCoinsScript.CoinsUpdate(coins);
+                player_Heath.UpdateDefense(0.05f);
+                Successful.text = "Increasing Successful!";
+                Fail.text = null;
+            }
         }
         else
         {
@@ -148,7 +169,7 @@ public class PauseGame : MonoBehaviour
         }
     }
 
-    public void IncreaseSpeed()
+   /* public void IncreaseSpeed()
     {
         CoinsCollector collectCoinsScript = FindObjectOfType<CoinsCollector>();
         if (coins >= PriceSpeed)
@@ -173,7 +194,7 @@ public class PauseGame : MonoBehaviour
         if (coins >= PriceJump)
         {
             Jump += 0.1f;
-            JumpText.text = "Jump : " + Jump; 
+            JumpText.text = "Jump : " + Jump;
             coins = coins - PriceJump;
             collectCoinsScript.CoinsUpdate(coins);
             Successful.text = "Increasing Successful!";
@@ -184,7 +205,7 @@ public class PauseGame : MonoBehaviour
             Fail.text = "Not enough coins!";
             Successful.text = null;
         }
-    }*/
+    }
+*/
 
-   
 }

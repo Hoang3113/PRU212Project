@@ -44,7 +44,10 @@ public class PlayerAttack : MonoBehaviour
             timeBtwAttack -= Time.deltaTime;
         }
     }
-
+    public void UpdateDamage(int value) 
+    {
+        damage = damage + value;
+    }
     void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
