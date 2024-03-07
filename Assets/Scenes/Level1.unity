@@ -2647,7 +2647,7 @@ Transform:
   m_GameObject: {fileID: 762575394}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.199992, y: -3.43378, z: -10.09}
+  m_LocalPosition: {x: -5.4810987, y: -4.15125, z: -10.09}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2753,7 +2753,7 @@ Transform:
   m_GameObject: {fileID: 770006430}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -17.67, y: -3.43, z: -10.09}
+  m_LocalPosition: {x: -12.51, y: -5.03, z: -10.09}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3195,11 +3195,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2467082274953979995, guid: e4524528d17fe8a4e9bb106feaf8a0e7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -17.67
+      value: -12.51
       objectReference: {fileID: 0}
     - target: {fileID: 2467082274953979995, guid: e4524528d17fe8a4e9bb106feaf8a0e7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.43
+      value: -5.03
       objectReference: {fileID: 0}
     - target: {fileID: 2467082274953979995, guid: e4524528d17fe8a4e9bb106feaf8a0e7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -74756,6 +74756,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd9faa2bfefeb614a84e9f0c5e405844, type: 3}
+--- !u!114 &351001053285031065 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 641055122159676251, guid: fd9faa2bfefeb614a84e9f0c5e405844, type: 3}
+  m_PrefabInstance: {fileID: 351001053285031064}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 284451e2439442a469be2b48d1737b45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1849327296794481079
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -75225,6 +75236,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Door
       objectReference: {fileID: 0}
+    - target: {fileID: 8895728793180353424, guid: 227b4b52a094b2e40828ae5060d755f9, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 351001053285031065}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
