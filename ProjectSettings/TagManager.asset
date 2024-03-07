@@ -10,6 +10,8 @@ TagManager:
   - Interactable
   - Chest
   - Ladder
+  - Key
+  - Vessel
   layers:
   - Default
   - TransparentFX
@@ -19,7 +21,7 @@ TagManager:
   - UI
   - Floor
   - Enemy
-  - 
+  - Vessel
   - 
   - 
   - 
