@@ -497,7 +497,7 @@ Transform:
   m_GameObject: {fileID: 288366974}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -17.650097, y: 2.7030299, z: -10.094036}
+  m_LocalPosition: {x: -18.468842, y: 2.7035, z: -10.094036}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5558,7 +5558,7 @@ MonoBehaviour:
     m_Bits: 8
   firePoint: {fileID: 875919890}
   bulletPrefab: {fileID: 6093543162632122316, guid: 333ea74a2e0a8ae46bb40fe935440d7c, type: 3}
-  spell_conddition: 3000
+  spell_conddition: 300
   animator: {fileID: 1278920801}
 --- !u!50 &1278920800
 Rigidbody2D:

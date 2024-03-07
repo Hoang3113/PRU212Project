@@ -34,10 +34,11 @@ public class Bullet1 : MonoBehaviour
             hitInfo.GetComponent<Health>().TakeDamage(damage);
             canDamage = false;
             StartCoroutine(ResetDamageCooldown());
-        }
-        Instantiate(impactEffect, transform.position, transform.rotation);
+            Instantiate(impactEffect, transform.position, transform.rotation);
 
-        Destroy(gameObject);
+            Destroy(gameObject);
+        }
+        
     }
 
     private IEnumerator ResetDamageCooldown()
