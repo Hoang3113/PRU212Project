@@ -21,7 +21,7 @@ public class SaveSystem : MonoBehaviour
         OnDataLoadedResult?.Invoke(result);
     }
 
-    private void ResetData()
+    public void ResetData()
     {
         PlayerPrefs.DeleteKey(sceneKey);
         PlayerPrefs.DeleteKey(savePresentKey);
