@@ -10,7 +10,12 @@ public class Goblin_Heath : MonoBehaviour
 
     public bool isInvulnerable = false;
     public Animator animator;
+    private VictoryManageUI victoryManageUI;
 
+
+    private void Awake(){
+        victoryManageUI = FindObjectOfType<VictoryManageUI>();
+    }
     // Start is called before the first frame update
     public void TakeDamage(int damage)
     {
@@ -43,5 +48,6 @@ public class Goblin_Heath : MonoBehaviour
         //Instantiate(deathEffect, transform.position, Quaternion.identity);
         //animator.SetTrigger("Death");
         Destroy(gameObject);
+        victoryManageUI.GameVictory();
     }
 }

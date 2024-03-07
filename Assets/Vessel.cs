@@ -5,12 +5,12 @@ using UnityEngine;
 public class Vessel : MonoBehaviour
 {
     public Sprite openVesselSprite;
-    public GameObject HealPrefab; 
-    public Vector3 healSpawnOffset = new Vector3(0f, 0.7f, 0f); 
+    public GameObject HealPrefab;
+    public Vector3 healSpawnOffset = new Vector3(0f, 0.7f, 0f);
     private SpriteRenderer spriteRenderer;
     public Health health;
-   // private bool isOpen = false;
-   
+    private bool isOpen = false;
+
 
     private void Start()
     {
@@ -27,9 +27,13 @@ public class Vessel : MonoBehaviour
 
     public void OpenTheVessel()
     {
-        spriteRenderer.sprite = openVesselSprite;
-     //   isOpen = true;
-        SpawnItem();
+        //   isOpen = true;
+        if (!isOpen)
+        {
+            SpawnItem();
+            spriteRenderer.sprite = openVesselSprite;
+            isOpen = true;
+        }
     }
 
     private void SpawnItem()
@@ -39,7 +43,7 @@ public class Vessel : MonoBehaviour
 
             GameObject keyInstance = Instantiate(HealPrefab, transform.position + healSpawnOffset, Quaternion.identity);
 
-        Debug.Log("SpawnItem");
+            Debug.Log("SpawnItem");
 
             health.AddHealth(20);
         }
