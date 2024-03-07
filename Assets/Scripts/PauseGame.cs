@@ -42,7 +42,7 @@ public class PauseGame : MonoBehaviour
                 Successful.text = null;
                 Fail.text = null;
             }
-            CoinsCollector collectCoinsScript = FindObjectOfType<CoinsCollector>();
+            GameManager collectCoinsScript = FindObjectOfType<GameManager>();
             Player_Heath player_Heath = FindObjectOfType<Player_Heath>();
             if (player_Heath != null) 
             {
@@ -89,7 +89,7 @@ public class PauseGame : MonoBehaviour
 
     public void IncreaseHealth(int amount)
     {
-        CoinsCollector collectCoinsScript = FindObjectOfType<CoinsCollector>();
+        GameManager collectCoinsScript = FindObjectOfType<GameManager>();
         if (coins >= PriceHeath)
         {
             Health += 100;
@@ -109,7 +109,7 @@ public class PauseGame : MonoBehaviour
 
     public void IncreaseAttack(int amount)
     {
-        CoinsCollector collectCoinsScript = FindObjectOfType<CoinsCollector>();
+        GameManager collectCoinsScript = FindObjectOfType<GameManager>();
         if (coins >= PriceAttack)
         {
             Attack += 100;

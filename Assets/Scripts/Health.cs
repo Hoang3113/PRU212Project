@@ -40,6 +40,7 @@ public class Health : MonoBehaviour
     public void AddHealth(float _value)
     {
         currentHealth = Mathf.Clamp(currentHealth + _value, 0, startingHealth);
+        healthBarLine.SetHealth(currentHealth);
     }
 
     public void Respawn()

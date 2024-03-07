@@ -144,3 +144,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   openChestSprite: {fileID: 21300000, guid: 638885e5af98b4f889e14e65c716199c, type: 3}
+  keyPrefab: {fileID: 6248178642714232090, guid: b1047cf4713d8c340bd01d28dd2b4331, type: 3}
+  keySpawnOffset: {x: 0, y: 0.7, z: 0}

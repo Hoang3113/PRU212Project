@@ -10,6 +10,8 @@ TagManager:
   - Interactable
   - Chest
   - Ladder
+  - Key
+  - Vessel
   layers:
   - Default
   - TransparentFX
