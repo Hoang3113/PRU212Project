@@ -9,7 +9,8 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private Transform attackPos;
     [SerializeField] private LayerMask whatIsEnemies;
     [SerializeField] private LayerMask vessel;
-    [SerializeField] private float attackRange;
+    [SerializeField] private float attackRangeX;
+    [SerializeField] private float attackRangeY;
     public int damage;
     // Start is called before the first frame update
     void Start()
@@ -25,12 +26,12 @@ public class PlayerAttack : MonoBehaviour
             //then you can attack
             if(Input.GetKey(KeyCode.Space))
             {
-                Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPos.position, attackRange, whatIsEnemies);
+                Collider2D[] enemiesToDamage = Physics2D.OverlapBoxAll(attackPos.position, new Vector2(attackRangeX, attackRangeY), 0, whatIsEnemies);
                 for (int i = 0; i < enemiesToDamage.Length; i++)
                 {
                     enemiesToDamage[i].GetComponent<EnemyControl>().TakeDamage(damage);
                 }
-                Collider2D[] vesselToBreak = Physics2D.OverlapCircleAll(attackPos.position, attackRange, vessel);
+                Collider2D[] vesselToBreak = Physics2D.OverlapBoxAll(attackPos.position, new Vector2(attackRangeX, attackRangeY), 0, vessel);
                 for (int i = 0; i < vesselToBreak.Length; i++)
                 {
                     vesselToBreak[i].GetComponent<Vessel>().OpenTheVessel();
@@ -47,6 +48,6 @@ public class PlayerAttack : MonoBehaviour
     void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(attackPos.position, attackRange);
+        Gizmos.DrawWireCube(attackPos.position, new Vector3(attackRangeX, attackRangeY, 1));
     }
 }
