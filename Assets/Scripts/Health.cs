@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System;
 
 public class Health : MonoBehaviour
 {
@@ -41,6 +42,7 @@ public class Health : MonoBehaviour
     {
         currentHealth = Mathf.Clamp(currentHealth + _value, 0, startingHealth);
         healthBarLine.SetHealth(currentHealth);
+        Debug.Log("ADD HEALTH");
     }
 
     public void Respawn()

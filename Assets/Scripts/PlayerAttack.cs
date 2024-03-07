@@ -8,6 +8,7 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private float startTimeBtwAttack;
     [SerializeField] private Transform attackPos;
     [SerializeField] private LayerMask whatIsEnemies;
+    [SerializeField] private LayerMask vessel;
     [SerializeField] private float attackRange;
     public int damage;
     // Start is called before the first frame update
@@ -28,6 +29,11 @@ public class PlayerAttack : MonoBehaviour
                 for (int i = 0; i < enemiesToDamage.Length; i++)
                 {
                     enemiesToDamage[i].GetComponent<EnemyControl>().TakeDamage(damage);
+                }
+                Collider2D[] vesselToBreak = Physics2D.OverlapCircleAll(attackPos.position, attackRange, vessel);
+                for (int i = 0; i < vesselToBreak.Length; i++)
+                {
+                    vesselToBreak[i].GetComponent<Vessel>().OpenTheVessel();
                 }
             }
             timeBtwAttack = startTimeBtwAttack;
