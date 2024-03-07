@@ -497,7 +497,7 @@ Transform:
   m_GameObject: {fileID: 288366974}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -17.650097, y: 2.7030299, z: -10.094036}
+  m_LocalPosition: {x: -18.468842, y: 2.7035, z: -10.094036}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5098,6 +5098,10 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: -0.008107185
       objectReference: {fileID: 0}
+    - target: {fileID: 3741191153401974220, guid: e4524528d17fe8a4e9bb106feaf8a0e7, type: 3}
+      propertyPath: m_Simulated
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5267788509400035842, guid: e4524528d17fe8a4e9bb106feaf8a0e7, type: 3}
       propertyPath: coinsText
       value: 
@@ -5554,7 +5558,7 @@ MonoBehaviour:
     m_Bits: 8
   firePoint: {fileID: 875919890}
   bulletPrefab: {fileID: 6093543162632122316, guid: 333ea74a2e0a8ae46bb40fe935440d7c, type: 3}
-  spell_conddition: 3000
+  spell_conddition: 300
   animator: {fileID: 1278920801}
 --- !u!50 &1278920800
 Rigidbody2D:
@@ -6246,7 +6250,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.000015258789}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 75.599976, y: 41.339966}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1925544913
