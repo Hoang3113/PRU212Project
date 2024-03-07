@@ -41,7 +41,7 @@ public class Vessel : MonoBehaviour
 
         Debug.Log("SpawnItem");
 
-            health.AddHealth(1);
+            health.AddHealth(20);
         }
     }
 }

@@ -46,10 +46,8 @@ GameObject:
   - component: {fileID: 2670924578437345636}
   - component: {fileID: 6310071113275503277}
   - component: {fileID: 7187537941384940463}
-  - component: {fileID: 8479378963311977023}
   - component: {fileID: 5267788509400035842}
   - component: {fileID: 6188651551369277909}
-  - component: {fileID: 3560164021561325705}
   m_Layer: 3
   m_Name: Character
   m_TagString: Player
@@ -285,25 +283,6 @@ MonoBehaviour:
   controller: {fileID: 6310071113275503277}
   animator: {fileID: 2670924578437345636}
   runSpeed: 40
---- !u!114 &8479378963311977023
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1799070113124932441}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4adf743791cb7204381fa94aebc1ea18, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startTimeBtwAttack: 0.3
-  attackPos: {fileID: 2640099301695518389}
-  whatIsEnemies:
-    serializedVersion: 2
-    m_Bits: 128
-  attackRange: 0.53
-  damage: 25
 --- !u!114 &5267788509400035842
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -317,7 +296,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coinsText: {fileID: 0}
-  coins: 0
 --- !u!114 &6188651551369277909
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -332,19 +310,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   KeyText: {fileID: 0}
   key: 0
---- !u!114 &3560164021561325705
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1799070113124932441}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f959d5fbb32fb841be92cf8c99016ee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  slider: {fileID: 0}
 --- !u!1 &2040396675667400212
 GameObject:
   m_ObjectHideFlags: 0

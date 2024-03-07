@@ -46,7 +46,7 @@ public class Boss_Move : StateMachineBehaviour
             }
             if (mana == spell_conddition)
             {
-                animator.SetTrigger("Spell");
+                //animator.SetTrigger("Spell");
                 mana = 0;
             }
         }

@@ -7,6 +7,7 @@ public class NextLevel : MonoBehaviour
     public float delaySecond = 1;
     public string nameScene = "Level_2";
     public Key_Collect keyCollector;
+    public GameManager gameManager;
     private void Start()
     {
         keyCollector = GameObject.FindObjectOfType<Key_Collect>(); // Tìm đối tượng Key_Collect trong scene
@@ -16,10 +17,10 @@ public class NextLevel : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-           
-            if (keyCollector.key >= 1) 
+
+            if (keyCollector.key >= 1)
             {
-                
+                gameManager.SaveData();
                 StartCoroutine(LoadAfterDelay());
             }
             else
@@ -32,9 +33,9 @@ public class NextLevel : MonoBehaviour
     IEnumerator LoadAfterDelay()
     {
         yield return new WaitForSeconds(delaySecond);
-       
-        yield return new WaitForSeconds(1); 
 
-        SceneManager.LoadScene(nameScene);
+        yield return new WaitForSeconds(1);
+
+        gameManager.LoadNextLevel();
     }
 }

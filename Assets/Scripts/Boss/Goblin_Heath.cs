@@ -14,7 +14,7 @@ public class Goblin_Heath : MonoBehaviour
     // Start is called before the first frame update
     public void TakeDamage(int damage)
     {
-        Debug.Log("TAK DAMG");
+        //Debug.Log("TAK DAMG");
         if (isInvulnerable)
             return;
 
@@ -35,6 +35,13 @@ public class Goblin_Heath : MonoBehaviour
     void Die()
     {
         Instantiate(deathEffect, transform.position, Quaternion.identity);
+        animator.SetTrigger("Death");
+        //Destroy(gameObject);
+    }
+    void DestrouObject()
+    {
+        //Instantiate(deathEffect, transform.position, Quaternion.identity);
+        //animator.SetTrigger("Death");
         Destroy(gameObject);
     }
 }
