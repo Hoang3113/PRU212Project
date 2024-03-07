@@ -10,6 +10,12 @@ public class Goblin_Attack : MonoBehaviour
     public Vector3 attackOffset;
     public float attackRange;
     public LayerMask attackMask;
+    public Transform firePoint;
+    public GameObject bulletPrefab;
+    public int spell_conddition;
+    public Animator animator;
+
+    private int mana = 0;
 
     public void Attack()
     {
@@ -30,5 +36,20 @@ public class Goblin_Attack : MonoBehaviour
         pos += transform.up * attackOffset.y;
 
         Gizmos.DrawWireSphere(pos, attackRange);
+    }
+    void Shoot()
+    {
+        Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+    }
+
+    private void Update()
+    {
+        mana++;
+        if (mana == spell_conddition)
+        {
+            animator.SetTrigger("Spell");
+            Shoot();
+            mana = 0;
+        }
     }
 }

@@ -7,9 +7,6 @@ public class Boss_Move : StateMachineBehaviour
     public float speed;
     public float atk_range;
     public float active_range;
-    public int spell_conddition;
-
-    private int mana;
 
     Transform player;
     Rigidbody2D rb;
@@ -21,14 +18,12 @@ public class Boss_Move : StateMachineBehaviour
         player = GameObject.FindGameObjectWithTag("Player").transform;
         rb = animator.GetComponent<Rigidbody2D>();
         boss = animator.GetComponent<Boss>();
-        mana = 0;
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         boss.LookAtPlayer();
-        mana++;
         bool active = true;
         if (Vector2.Distance(player.position, rb.position) <= active_range)
         {
@@ -44,11 +39,11 @@ public class Boss_Move : StateMachineBehaviour
             {
                 animator.SetTrigger("Attack");
             }
-            if (mana == spell_conddition)
-            {
-                animator.SetTrigger("Spell");
-                mana = 0;
-            }
+            //if (mana == spell_conddition)
+            //{
+            //    animator.SetTrigger("Spell");
+            //    mana = 0;
+            //}
         }
         
     }
