@@ -19,7 +19,7 @@ public class Bullet1 : MonoBehaviour
     // Update is called once per frame
     void OnTriggerEnter2D(Collider2D hitInfo)
     {
-        Player_Heath player = hitInfo.GetComponent<Player_Heath>();
+        Health player = hitInfo.GetComponent<Health>();
         if (player != null)
         {
             player.TakeDamage(damage);

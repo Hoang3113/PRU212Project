@@ -40,14 +40,14 @@ public class Move : MonoBehaviour
                 Vector2 target = new Vector2(player.position.x, rb.position.y);
                 Vector2 newPos = Vector2.MoveTowards(rb.position, target, speed * Time.fixedDeltaTime);
                 rb.MovePosition(newPos);
-                animator.SetBool("Active", true);
+                animator.SetBool("Move", true);
             }
             else
             {
-                Vector2 target = new Vector2(init.position.x, rb.position.y);
-                Vector2 newPos = Vector2.MoveTowards(rb.position, target, speed * Time.fixedDeltaTime);
-                rb.MovePosition(newPos);
-                animator.SetBool("Active", false);
+                //Vector2 target = new Vector2(init.position.x, rb.position.y);
+                //Vector2 newPos = Vector2.MoveTowards(rb.position, target, speed * Time.fixedDeltaTime);
+                //rb.MovePosition(newPos);
+                animator.SetBool("Move", false);
             }
         }
     }

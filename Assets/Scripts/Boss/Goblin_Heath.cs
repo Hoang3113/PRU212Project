@@ -35,6 +35,13 @@ public class Goblin_Heath : MonoBehaviour
     void Die()
     {
         Instantiate(deathEffect, transform.position, Quaternion.identity);
+        animator.SetTrigger("Death");
+        //Destroy(gameObject);
+    }
+    void DestrouObject()
+    {
+        //Instantiate(deathEffect, transform.position, Quaternion.identity);
+        //animator.SetTrigger("Death");
         Destroy(gameObject);
     }
 }
