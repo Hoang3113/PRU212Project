@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using static UnityEditor.Timeline.TimelinePlaybackControls;
 
@@ -125,7 +126,9 @@ public class PauseGame : MonoBehaviour
             Successful.text = null;
         }
     }
-
+    public void BackToMenu(){
+        SceneManager.LoadScene(0); 
+    }
     /*public void IncreaseDefense()
     {
         CoinsCollector collectCoinsScript = FindObjectOfType<CoinsCollector>();

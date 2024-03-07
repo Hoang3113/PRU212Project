@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
@@ -23,8 +24,13 @@ public class UIManager : MonoBehaviour
 
     public void Restart()
     {
-        if (playerRespawn != null)
+        if (playerRespawn != null){
             playerRespawn.Respawn();
+        }
         gameOverScreen.SetActive(false);
+    }
+
+    public void BackToMenu(){
+        SceneManager.LoadScene(0);
     }
 }
