@@ -138,7 +138,8 @@ public class PauseGame : MonoBehaviour
         }
     }
     public void BackToMenu(){
-        SceneManager.LoadScene(0); 
+        SceneManager.LoadScene(0);
+        Destroy(gameObject);
     }
     public void IncreaseDefense()
     {

@@ -12,11 +12,14 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
 
     public int coins = 0;
-
+    private void OnDestroy()
+    {
+        Debug.Log("GameManager is being destroyed!");
+    }
     private void Awake()
     {
         SceneManager.sceneLoaded += Initialize;
-       
+
         if (instance == null)
         {
             instance = this;
@@ -26,12 +29,13 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
     }
     public void CoinsUpdate(int amount = 0)
     {
         CoinsCollector collectCoinsScript = FindObjectOfType<CoinsCollector>();
         GameManager.instance.coins = amount;
-        collectCoinsScript.coinsText.text= GameManager.instance.coins.ToString();
+        collectCoinsScript.coinsText.text = GameManager.instance.coins.ToString();
 
     }
     private void Initialize(UnityEngine.SceneManagement.Scene scene, LoadSceneMode sceneMode)
@@ -41,22 +45,34 @@ public class GameManager : MonoBehaviour
 
     public void LoadLevel()
     {
-        if(saveSystem != null && saveSystem.LoadedData != null)
+        if (saveSystem != null && saveSystem.LoadedData != null)
         {
             SceneManager.LoadScene(saveSystem.LoadedData.sceneIndex);
             return;
         }
-        LoadNextLevel();
+        LoadNextLevel(); Destroy(gameObject);
     }
-    
+    public void LoadNewLevel()
+    {
+   
+        
+        
+        SceneManager.LoadScene("Level1");
+        Destroy(gameObject);
+    }
     public void LoadNextLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        Destroy(gameObject);
+    }
+    public void LoadMenu()
+    {
+        SceneManager.LoadScene(0); Destroy(gameObject);
     }
 
     public void SaveData()
     {
-        if(player != null)
+        if (player != null)
         {
             saveSystem.SaveData(SceneManager.GetActiveScene().buildIndex + 1);
         }
