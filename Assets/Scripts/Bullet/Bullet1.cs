@@ -1,10 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.PackageManager;
 using UnityEngine;
-using UnityEngine.Timeline;
-using static UnityEditor.PlayerSettings;
-
 public class Bullet1 : MonoBehaviour
 {
     public float speed = -10f;

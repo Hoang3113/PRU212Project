@@ -1,7 +1,5 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using static UnityEditor.Timeline.TimelinePlaybackControls;
-
 public class Key_Collect : MonoBehaviour
 {
     public Text KeyText;
