@@ -22,11 +22,6 @@ public class MenuFunction : MonoBehaviour
         SceneManager.LoadScene(1);
     }
     
-    public void Continue()
-    {
-
-    }
-
     public void Quit()
     {
         Application.Quit();
